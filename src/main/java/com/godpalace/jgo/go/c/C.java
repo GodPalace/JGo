@@ -139,19 +139,6 @@ public class C {
     }
 
     public static void callVoid(String funcName, Object... args) {
-        if (instance == null) {
-            init();
-        }
-
-        Function function;
-        if (funcs.containsKey(funcName)) {
-            function = funcs.get(funcName);
-        } else {
-            Pointer pointer = JGoKernel32.INSTANCE.GetProcAddress(hModule, new WTypes.LPSTR(funcName));
-            function = Function.getFunction(pointer);
-            funcs.put(funcName, function);
-        }
-
-        function.invokeVoid(args);
+        call(funcName, Void.class, args);
     }
 }

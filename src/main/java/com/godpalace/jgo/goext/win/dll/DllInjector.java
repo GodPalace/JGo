@@ -1,4 +1,4 @@
-package com.godpalace.jgo.goext.sys.dll;
+package com.godpalace.jgo.goext.win.dll;
 
 import com.sun.jna.Memory;
 import com.sun.jna.Native;

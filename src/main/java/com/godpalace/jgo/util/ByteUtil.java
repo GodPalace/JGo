@@ -1,6 +1,6 @@
 package com.godpalace.jgo.util;
 
-import com.godpalace.jgo.goext.sys.dll.MemoryException;
+import com.godpalace.jgo.goext.win.dll.MemoryException;
 import sun.misc.Unsafe;
 
 import java.lang.reflect.Field;
@@ -50,6 +50,15 @@ public final class ByteUtil {
         }
     }
 
+    public static Class<?> toClass(String className, byte[] bytes) {
+        try {
+            Loader loader = new Loader(Thread.currentThread().getContextClassLoader());
+            return loader.defineClass(className, bytes);
+        } catch (Exception e) {
+            throw new MemoryException(e.getMessage());
+        }
+    }
+
     public static long getObjectAddress(Object obj) {
         Object[] array = new Object[]{obj};
         long baseOffset = unsafe.arrayBaseOffset(Object[].class);
@@ -76,5 +85,15 @@ public final class ByteUtil {
 
         // 计算大小（最大偏移 + 字段大小 + 对齐填充）
         return ((int) (maxOffset/8 + 1)) * 8;
+    }
+
+    static class Loader extends ClassLoader {
+        public Loader(ClassLoader loader) {
+            super(loader);
+        }
+
+        public Class<?> defineClass(String name, byte[] b) {
+            return defineClass(name, b, 0, b.length);
+        }
     }
 }

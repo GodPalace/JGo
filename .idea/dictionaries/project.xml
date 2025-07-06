@@ -9,6 +9,9 @@
       <w>jmxremote</w>
       <w>mmap</w>
       <w>munmap</w>
+      <w>ossrh</w>
+      <w>pinentry</w>
+      <w>pjwggs</w>
       <w>wbmp</w>
     </words>
   </dictionary>
