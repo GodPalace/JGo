@@ -1,6 +1,6 @@
 package com.godpalace.jgo.goext.win.io.file;
 
-import com.godpalace.jgo.goext.win.sys.LockException;
+import com.godpalace.jgo.goext.win.io.LockException;
 import com.sun.jna.Native;
 import com.sun.jna.platform.win32.Kernel32;
 import com.sun.jna.platform.win32.WinDef;

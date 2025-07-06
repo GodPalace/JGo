@@ -1,7 +1,7 @@
 package com.godpalace.jgo.goext.win.io.memory;
 
 import com.godpalace.jgo.goext.exit.ExitInvoker;
-import com.godpalace.jgo.goext.win.sys.IOTimeoutException;
+import com.godpalace.jgo.goext.win.io.IOTimeoutException;
 import com.sun.jna.Native;
 import com.sun.jna.Pointer;
 import com.sun.jna.platform.win32.*;
